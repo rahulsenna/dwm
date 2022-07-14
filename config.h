@@ -80,14 +80,12 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
-static const char *xrandr[]  =  { "xrandr", "-r", "60", NULL };
 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_1,      spawn,          {.v = sublime } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = chrome } },
-	{ MODKEY,                       XK_grave,  spawn,          {.v = xrandr } },
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
