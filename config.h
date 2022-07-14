@@ -126,7 +126,11 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 
-	{ 0,                            XF86XK_AudioLowerVolume,     spawn, {.v = downvol } },
+    { MODKEY,                       XK_Down,   spawn, {.v = downvol } },
+    { MODKEY,                       XK_Home,   spawn, {.v = mutevol } },
+    { MODKEY,                       XK_Up,     spawn, {.v = upvol   } },
+
+    { 0,                            XF86XK_AudioLowerVolume,     spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute, 			 spawn, {.v = mutevol } },
 	{ 0,                            XF86XK_AudioRaiseVolume,     spawn, {.v = upvol   } },
 	{ 0,					        XF86XK_MonBrightnessUp,		 spawn,	{.v = light_up} },
