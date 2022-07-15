@@ -53,8 +53,10 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class              instance    title       tags mask     isfloating   monitor */
-	{ "Sublime_text",     NULL,       NULL,       1,            0,           -1 },
-	{ "Google-chrome",    NULL,       NULL,       2,            0,           -1 },
+	{ "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
+	{ "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
+	{ "jetbrains-clion","jetbrains-clion",
+								        NULL,       4,            0,           -1 },
 };
 
 /* layout(s) */
@@ -87,18 +89,25 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
+static const char *clion[]   =  { "clion", NULL };
+static const char *thunar[]  =  { "thunar", NULL };
+static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
+
 
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_1,      spawn,          {.v = sublime } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = chrome } },
+	{ MODKEY,                       XK_u,      spawn,          {.v = thunar } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = ranger } },
+	{ MODKEY,                       XK_i,      spawn,          {.v = clion  } },
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -108,7 +117,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_o,      setlayout,      {0} },
+	{ MODKEY,                       XK_w,      setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
