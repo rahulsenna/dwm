@@ -43,6 +43,20 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
+typedef struct {
+	const char *name;
+	const void *cmd;
+} Sp;
+const char *spcmd1[] = {"alacritty", "--class", "spterm", "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", NULL };
+const char *spcmd2[] = {"alacritty", "--class", "spfm", "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", "-e", "ranger", NULL };
+const char *spcmd3[] = {"thunar", NULL };
+static Sp scratchpads[] = {
+	/* name          cmd  */
+	{"spterm",      spcmd1},
+	{"spranger",    spcmd2},
+	{"thunar",   spcmd3},
+};
+
 /* tagging */
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 // static const char *tags[] = { "", "", "", "", "", "", "",  "", "" }; 
@@ -55,8 +69,11 @@ static const Rule rules[] = {
 	/* class              instance    title       tags mask     isfloating   monitor */
 	{ "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
 	{ "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
-	{ "jetbrains-clion","jetbrains-clion",
-								        NULL,       4,            0,           -1 },
+	{ "jetbrains-clion",    NULL,       NULL,       4,            0,           -1 },
+    { NULL,		           "spfm",		NULL,		SPTAG(1),	  1,           -1 },
+    { NULL,		           "thunar",	NULL,		SPTAG(2),	  1,           -1 },
+    { NULL,		           "spterm",	NULL,		SPTAG(0),	  1,           -1 },
+
 };
 
 /* layout(s) */
@@ -90,8 +107,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
 static const char *clion[]   =  { "clion", NULL };
-static const char *thunar[]  =  { "thunar", NULL };
+//static const char *thunar[]  =  { "thunar", NULL };
 static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
+
 
 
 
@@ -99,7 +117,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_1,      spawn,          {.v = sublime } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = chrome } },
-	{ MODKEY,                       XK_u,      spawn,          {.v = thunar } },
+//	{ MODKEY,                       XK_u,      spawn,          {.v = thunar } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = ranger } },
 	{ MODKEY,                       XK_i,      spawn,          {.v = clion  } },
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
@@ -125,6 +143,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+    { MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
+    { MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
+    { MODKEY,            			XK_x,	   togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -161,7 +182,7 @@ static Button buttons[] = {
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
-	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
