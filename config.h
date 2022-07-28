@@ -110,6 +110,8 @@ static const char *chrome[]  =  { "google-chrome-stable", NULL };
 static const char *clion[]   =  { "clion", NULL };
 //static const char *thunar[]  =  { "thunar", NULL };
 static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
+static const char *flameshot[]  = { "flameshot", "gui", NULL };
+
 
 
 
@@ -171,6 +173,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume,     spawn, {.v = upvol   } },
 	{ 0,					        XF86XK_MonBrightnessUp,		 spawn,	{.v = light_up} },
 	{ 0,					        XF86XK_MonBrightnessDown,	 spawn,	{.v = light_down} },
+	{ 0,					        XK_Print,	 				 spawn,	{.v = flameshot} },
+
 };
 
 /* button definitions */
