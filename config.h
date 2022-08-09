@@ -60,8 +60,9 @@ static Sp scratchpads[] = {
 
 /* tagging */
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "Subl", "Chrome", "Clion", "Misc", "Misc", "Misc", "Misc", "Misc", "VSCode" };
 // static const char *tags[] = { "", "", "", "", "", "", "",  "", "" }; 
-static const char *tags[] = { "📖", "🌎", "🐛", "🖌","ext" }; 
+// static const char *tags[] = { "📖", "🌎", "🐛", "🖌","ext" }; 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -106,6 +107,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
+static const char *vscode[]  = { "code", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
 static const char *clion[]   =  { "clion", NULL };
 //static const char *thunar[]  =  { "thunar", NULL };
@@ -119,6 +121,7 @@ static const char *flameshot[]  = { "flameshot", "gui", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_1,      spawn,          {.v = sublime } },
+	{ MODKEY,                       XK_F7,     spawn,          {.v = vscode } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = chrome } },
 //	{ MODKEY,                       XK_u,      spawn,          {.v = thunar } },
 	{ MODKEY,                       XK_o,      spawn,          {.v = ranger } },
@@ -161,6 +164,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
+	TAGKEYS(                        XK_F7,                     8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 
