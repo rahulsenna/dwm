@@ -70,7 +70,7 @@ static const Rule rules[] = {
 	 */
 	/* class              instance    title       tags mask     isfloating   monitor */
 	{ "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
-	{ "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
+	// { "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
 	{ "jetbrains-clion",    NULL,       NULL,       4,            0,           -1 },
     { NULL,		           "spfm",		NULL,		SPTAG(1),	  1,           -1 },
     { NULL,		           "thunar",	NULL,		SPTAG(2),	  1,           -1 },
@@ -157,6 +157,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
+	TAGKEYS(                        XK_grave,                  1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
