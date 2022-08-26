@@ -60,7 +60,7 @@ static Sp scratchpads[] = {
 
 /* tagging */
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "Subl", "Chrome", "Clion", "Misc", "Misc", "Misc", "Misc", "Misc", "VSCode" };
+static const char *tags[] = { "Subl", "Chrome", "VSCode", "Clion", "Misc", "Misc", "Misc", "Misc",  "Misc" };
 // static const char *tags[] = { "", "", "", "", "", "", "",  "", "" }; 
 // static const char *tags[] = { "📖", "🌎", "🐛", "🖌","ext" }; 
 static const Rule rules[] = {
@@ -71,7 +71,7 @@ static const Rule rules[] = {
 	/* class              instance    title       tags mask     isfloating   monitor */
 	{ "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
 	// { "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
-	{ "jetbrains-clion",    NULL,       NULL,       4,            0,           -1 },
+	{ "jetbrains-clion",    NULL,       NULL,       8,            0,           -1 },
     { NULL,		           "spfm",		NULL,		SPTAG(1),	  1,           -1 },
     { NULL,		           "thunar",	NULL,		SPTAG(2),	  1,           -1 },
     { NULL,		           "spterm",	NULL,		SPTAG(0),	  1,           -1 },
@@ -124,7 +124,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F7,     spawn,          {.v = vscode } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = chrome } },
 //	{ MODKEY,                       XK_u,      spawn,          {.v = thunar } },
-	{ MODKEY,                       XK_o,      spawn,          {.v = ranger } },
+//  { MODKEY,                       XK_o,      spawn,          {.v = ranger } },
+	{ MODKEY,                       XK_u,      shiftview,      {.i = -1 } },
+	{ MODKEY,                       XK_o,      shiftview,      {.i = +1 } },
 	{ MODKEY,                       XK_i,      spawn,          {.v = clion  } },
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
@@ -150,8 +152,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
-    { MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
-    { MODKEY,            			XK_x,	   togglescratch,  {.ui = 2 } },
+//  { MODKEY,            			XK_u,	   togglescratch,  {.ui = 1 } },
+    { MODKEY,            			XK_p,	   togglescratch,  {.ui = 2 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -165,7 +167,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	TAGKEYS(                        XK_F7,                     8)
+	TAGKEYS(                        XK_F7,                     7)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 
