@@ -2154,6 +2154,8 @@ updatewmhints(Client *c)
 	}
 }
 
+Arg maximize = {.v = &layouts[2]};
+
 void
 view(const Arg *arg)
 {
@@ -2190,6 +2192,11 @@ view(const Arg *arg)
 
 	focus(NULL);
 	arrange(selmon);
+
+	if (arg->ui < 1 << 3) // fullscreen in first three tags, for vscode,chrome
+	{
+		setlayout(&maximize);		
+	}
 }
 
 Client *

@@ -109,9 +109,9 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
 static const char *vscode[]  = { "code", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
-static const char *clion[]   =  { "clion", NULL };
+// static const char *clion[]   =  { "clion", NULL };
 //static const char *thunar[]  =  { "thunar", NULL };
-static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
+// static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
 static const char *flameshot[]  = { "flameshot", "gui", NULL };
 
 
@@ -130,8 +130,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-//	{ MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
-//	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+ // { MODKEY,                       XK_s,      incnmaster,     {.i = +1 } },
+ // { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
