@@ -48,14 +48,17 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"alacritty", "--class", "spterm", "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", NULL };
-const char *spcmd2[] = {"alacritty", "--class", "spfm", "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", "-e", "ranger", NULL };
-const char *spcmd3[] = {"thunar", NULL };
+const char *spcmd1[] = {"alacritty",   "--class", "spterm",   "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", NULL };
+const char *spcmd2[] = {"alacritty",   "--class", "spfm",     "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", "-e", "ranger", NULL };
+const char *spcmd3[] = {"thunar",      NULL };
+const char *spcmd4[] = {"speedcrunch", NULL };
+
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-	{"thunar",   spcmd3},
+	{"spthunar",    spcmd3},
+	{"spcalc",      spcmd4},
 };
 
 /* tagging */
@@ -72,9 +75,10 @@ static const Rule rules[] = {
 	{ "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
 	// { "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
 	{ "jetbrains-clion",    NULL,       NULL,       8,            0,           -1 },
+    { NULL,		           "spterm",	NULL,		SPTAG(0),	  1,           -1 },
     { NULL,		           "spfm",		NULL,		SPTAG(1),	  1,           -1 },
     { NULL,		           "thunar",	NULL,		SPTAG(2),	  1,           -1 },
-    { NULL,		           "spterm",	NULL,		SPTAG(0),	  1,           -1 },
+    { NULL,		       "speedcrunch",   NULL,		SPTAG(3),	  1,           -1 },
 
 };
 
@@ -152,6 +156,7 @@ static Key keys[] = {
     { MODKEY,            			XK_y,  	   togglescratch,  {.ui = 0 } },
 	{ MODKEY,            			XK_i,	   togglescratch,  {.ui = 1 } },
     { MODKEY,            			XK_p,	   togglescratch,  {.ui = 2 } },
+    { MODKEY,            			XK_c,	   togglescratch,  {.ui = 3 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -188,10 +193,10 @@ static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkWinTitle,          0,              Button3,        zoom,           {0} },
+	{ ClkStatusText,        0,              Button3,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	{ ClkClientWin,         MODKEY,         Button3,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button1,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
