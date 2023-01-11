@@ -113,6 +113,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
 static const char *vscode[]  = { "code", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
+static const char *brave[]  =  { "brave", NULL };
 // static const char *clion[]   =  { "clion", NULL };
 //static const char *thunar[]  =  { "thunar", NULL };
 // static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
@@ -124,7 +125,7 @@ static const char *flameshot[]  = { "flameshot", "gui", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_1,      spawn,          {.v = sublime } },
+	{ MODKEY|ShiftMask,             XK_grave,      spawn,          {.v = brave } },
 	{ MODKEY,                       XK_F7,     spawn,          {.v = vscode } },
 	{ MODKEY,                       XK_grave,  spawn,          {.v = chrome } },
 	{ MODKEY,                       XK_u,      shiftview,      {.i = -1 } },
@@ -202,7 +203,7 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-	{ 0,                    0,                    8,        focusstack,     {.i = +1 } },
-	{ 0,                    0,                    9,        focusstack,     {.i = -1 } },
+	{ 0,                    0,              Button2,        focusstack,     {.i = -1 } },
+	{ 0,                    0,              Button2,        focusstack,     {.i = +1 } },
 };
 
