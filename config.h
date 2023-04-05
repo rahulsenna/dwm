@@ -72,7 +72,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class              instance    title       tags mask     isfloating   monitor */
-	{ "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
+	// { "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
 	// { "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
 	{ "jetbrains-clion",    NULL,       NULL,       8,            0,           -1 },
     { NULL,		           "spterm",	NULL,		SPTAG(0),	  1,           -1 },
