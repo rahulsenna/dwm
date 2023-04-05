@@ -2193,7 +2193,7 @@ view(const Arg *arg)
 	focus(NULL);
 	arrange(selmon);
 
-	if (arg->ui < 1 << 3) // fullscreen in first three tags, for vscode,chrome
+	if (arg->ui == (1 << 1) || arg->ui == (1 << 2)) // fullscreen in 2 and 3 tags, for vscode,chrome
 	{
 		setlayout(&maximize);		
 	}
