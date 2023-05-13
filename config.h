@@ -25,7 +25,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 // static const char *fonts[]          = { "JetBrains Mono Medium:size=14" };
-static const char *fonts[]          = { "SF Pro Display:style=Black:size=17" };
+static const char *fonts[]          = { "SF Pro Display:style=Black:size=12" };
 static const char dmenufont[]       = "monospace:size=20";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -50,7 +50,7 @@ typedef struct {
 	const void *cmd;
 } Sp;
 const char *spcmd1[] = {"alacritty",   "--class", "spterm",   "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", NULL };
-const char *spcmd2[] = {"alacritty",   "--class", "spfm",     "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", "-e", "ranger", NULL };
+const char *spcmd2[] = {"alacritty",   "--class", "spfm",     "--config-file", "/home/agent/.config/alacritty/scratchpad.yml", NULL };
 const char *spcmd3[] = {"thunar",      NULL };
 const char *spcmd4[] = {"speedcrunch", NULL };
 
@@ -64,9 +64,9 @@ static Sp scratchpads[] = {
 
 /* tagging */
 // static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "Subl", "Chrome", "VSCode", "Clion", "Misc", "Misc", "Misc", "Misc",  "Misc" };
-// static const char *tags[] = { "", "", "", "", "", "", "",  "", "" }; 
-// static const char *tags[] = { "📖", "🌎", "🐛", "🖌","ext" }; 
+static const char *tags[] = { "One", "Chrome", "VSCode", "Four", "Five", "Six", "Seven", "Eight",  "Nine" };
+// static const char *tags[] = { "", "", "", "", "", "", "",  "", "" };
+// static const char *tags[] = { "📖", "🌎", "🐛", "🖌","ext" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -75,7 +75,7 @@ static const Rule rules[] = {
 	/* class              instance    title       tags mask     isfloating   monitor */
 	// { "Sublime_text",       NULL,       NULL,       1,            0,           -1 },
 	// { "Google-chrome",      NULL,       NULL,       2,            0,           -1 },
-	{ "jetbrains-clion",    NULL,       NULL,       8,            0,           -1 },
+	// { "jetbrains-clion",    NULL,       NULL,       8,            0,           -1 },
     { NULL,		           "spterm",	NULL,		SPTAG(0),	  1,           -1 },
     { NULL,		           "spfm",		NULL,		SPTAG(1),	  1,           -1 },
     { NULL,		           "thunar",	NULL,		SPTAG(2),	  1,           -1 },
@@ -114,7 +114,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *sublime[]  = { "subl", NULL };
 static const char *vscode[]  = { "code", NULL };
 static const char *chrome[]  =  { "google-chrome-stable", NULL };
-static const char *brave[]  =  { "brave", NULL };
+static const char *brave[]  =  { "firefox", NULL };
 // static const char *clion[]   =  { "clion", NULL };
 //static const char *thunar[]  =  { "thunar", NULL };
 // static const char *ranger[]  =  { "alacritty", "-e", "ranger", NULL };
